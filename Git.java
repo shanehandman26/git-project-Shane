@@ -1,29 +1,37 @@
 import java.io.*;
 
 public class Git {
-    public static void main(String[] args) {
-        this.init();
-
-    }
-
-    public void init() throws IOException {
+    public void init() {
         int num = 0;
+        File gitNew = new File("gitNew");
         if (!gitNew.exists()) {
             gitNew.mkdir();
             num++;
         }
+        File INDEX = new File("gitNew");
         if (!INDEX.exists()) {
-            File INDEX = new File("gitNew");
-            INDEX.createNewFile();
+            try {
+                INDEX.createNewFile();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
             num++;
         }
+        File objects = new File("gitNew");
         if (!objects.exists()) {
+            objects.mkdir();
             num++;
         }
 
+        File HEAD = new File("git");
         if (HEAD.exists()) {
-            File HEAD = new File("git");
-            HEAD.createNewFile();
+            try {
+                HEAD.createNewFile();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
             num++;
         }
         if (num < 4) {
