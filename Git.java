@@ -1,4 +1,7 @@
 import java.io.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import org.apache.commons.codec.digest.DigestUtils;
 
 public class Git {
     public void init() {
@@ -39,6 +42,10 @@ public class Git {
         } else {
             System.out.println("Git Repository Already Exists");
         }
+    }
 
+    public static String getSHA1(String input) {
+        String hashed = DigestUtils.sha1Hex(input);
+        return hashed;
     }
 }
