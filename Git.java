@@ -1,4 +1,6 @@
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -42,10 +44,21 @@ public class Git {
         } else {
             System.out.println("Git Repository Already Exists");
         }
+
     }
 
-    public static String getSHA1(String input) {
+    public void createBlob(File fileAdded) {
+        //read file and turn to string
+        File myFile = f=
+        fileAddedString content = Files.readString(Path.of(fileAdded));
+        String hashFile = hashSHA1(fileAdded);
+
+        
+    }
+
+    public static String hashSHA1(String input) {
         String hashed = DigestUtils.sha1Hex(input);
         return hashed;
     }
+
 }
